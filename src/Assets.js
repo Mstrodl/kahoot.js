@@ -22,6 +22,7 @@ class Question {
 		this.quiz.questions.push(this);
 		this.number = this.quiz.questions.length;
 		this.quiz.currentQuestion = this;
+    this.quiz.questionCount = rawEvent.quizQuestionAnswers.length;
 	}
 	answer(number) {
 		return new Promise((fulfill, reject) => {

@@ -37,7 +37,8 @@ class WSHandler extends EventEmitter {
 						timeLeft: content.timeLeft,
 						type: content.gameBlockType,
 						useStoryBlocks: content.canAccessStoryBlocks,
-						ansMap: content.answerMap
+						ansMap: content.answerMap,
+            quizQuestionAnswers: content.quizQuestionAnswers
 					});
 				} else if (content.questionIndex > me.kahoot.quiz.currentQuestion.index) {
 					me.emit("quizUpdate", {
@@ -45,7 +46,8 @@ class WSHandler extends EventEmitter {
 						timeLeft: content.timeLeft,
 						type: content.gameBlockType,
 						useStoryBlocks: content.canAccessStoryBlocks,
-						ansMap: content.answerMap
+						ansMap: content.answerMap,
+            quizQuestionAnswers: content.quizQuestionAnswers
 					});
 				}
 			},
@@ -157,7 +159,7 @@ class WSHandler extends EventEmitter {
 				}),
 				gameid: me.gameID,
 				host: consts.ENDPOINT_URI,
-				id: 6,
+				id: 45,
 				type: "message"
 			},
 			id: me.msgID + ""
