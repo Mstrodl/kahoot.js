@@ -1,4 +1,4 @@
-const EventEmitter = require("events");
+const EventEmitter = require("eventemitter3");
 var Promise = require("promise");
 var Assets = require("./Assets.js");
 var WSHandler = require("./WSHandler.js");

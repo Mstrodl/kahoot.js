@@ -1,4 +1,4 @@
-const EventEmitter = require("events");
+const EventEmitter = require("eventemitter3");
 var Promise = require("promise");
 var WebSocket = require("ws");
 var consts = require("./consts.js");
