@@ -1,4 +1,4 @@
-var https = require("https");
+var https = require("browser-builtins").https;
 var consts = require("./consts");
 
 class TokenJS {
