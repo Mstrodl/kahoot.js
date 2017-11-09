@@ -1,6 +1,5 @@
 const EventEmitter = require("eventemitter3");
 var Promise = require("promise");
-if(!WebSocket) var WebSocket = require("ws");
 var consts = require("./consts.js");
 
 class WSHandler extends EventEmitter {
@@ -15,17 +14,15 @@ class WSHandler extends EventEmitter {
 		this.name = "";
 		this.firstQuizEvent = false;
 		this.lastReceivedQ = null;
-		this.ws = new WebSocket(consts.WSS_ENDPOINT + session + "/" + token, {
-			origin: "https://kahoot.it/"
-		});
+		this.ws = new WebSocket(consts.WSS_ENDPOINT + session + "/" + token);
 		// Create anonymous callbacks to prevent an event emitter loop
-		this.ws.on("open", () => {
+		this.ws.addEventListener("open", () => {
 			me.open();
 		});
-		this.ws.on("message", msg => {
+		this.ws.addEventListener("message", msg => {
 			me.message(msg);
 		});
-		this.ws.on("close", () => {
+		this.ws.addEventListener("close", () => {
 			me.connected = false;
 			me.close();
 		});
