@@ -1,6 +1,6 @@
 const EventEmitter = require("eventemitter3");
 var Promise = require("promise");
-var WebSocket = require("ws");
+if(!WebSocket) var WebSocket = require("ws");
 var consts = require("./consts.js");
 
 class WSHandler extends EventEmitter {
